@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Saira');
+$font-family-sans-serif: 'Saira', sans-serif;
+$jumbotron-bg: rgba(0, 0, 0, 0.1);
+$jumbotron-color: white;
+
+// Overrides go here.
+// Import Bootstrap defaults.
+@import '~bootstrap/scss/bootstrap.scss';

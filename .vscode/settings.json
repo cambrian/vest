@@ -22,6 +22,7 @@
     }
   ],
   "prettier.disableLanguages": ["markdown"],
+  "prettier.singleQuote": true,
   "[markdown]": {
     "editor.wordWrap": "off"
   }
