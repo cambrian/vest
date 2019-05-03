@@ -54,7 +54,7 @@ const App: React.FC = () => (
               contracts, which are backed by Polychain Capital.
               <br />
               <br />
-              We're reviewing applications on a rolling basis, so take a brief
+              Applications will be reviewed on a rolling basis, so take a brief
               moment to tell us about your staking needs:
             </Card.Text>
             <Button variant="primary">Apply Now</Button>
