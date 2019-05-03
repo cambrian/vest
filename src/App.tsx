@@ -22,7 +22,7 @@ const App: React.FC = () => (
       </Col>
     </Row>
     <Row className="top-buffer">
-      <Col xs={{ span: 8 }}>
+      <Col md={{ span: 8 }}>
         <Jumbotron>
           <h1>
             <b>Staking With Leverage</b>
@@ -43,7 +43,7 @@ const App: React.FC = () => (
           </p>
         </Jumbotron>
       </Col>
-      <Col xs={{ span: 4 }}>
+      <Col md={{ span: 4 }}>
         <Card className="card-signup">
           <Card.Body>
             <Card.Title>
