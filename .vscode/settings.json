@@ -21,6 +21,7 @@
       "autoFix": true
     }
   ],
+  "prettier.disableLanguages": ["markdown"],
   "[markdown]": {
     "editor.wordWrap": "off"
   }
