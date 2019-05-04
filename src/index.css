@@ -27,9 +27,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
-.card-info.card-bright {
-  border: 2px solid black !important;
-  /* color: black; */
+.card-info.card-dark {
   background-color: rgba(0, 0, 0, 0.8) !important;
 }
 

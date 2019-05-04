@@ -51,7 +51,7 @@ const Tutorial: React.FC = () => {
         </Card>
       </Col>
       <Col>
-        <Card className="card-info card-static card-bright top-buffer-sm">
+        <Card className="card-info card-static card-dark top-buffer-sm">
           <Card.Body>
             <Card.Title>
               <b>Placeholder Form</b>
