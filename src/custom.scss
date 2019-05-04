@@ -2,7 +2,29 @@
 $font-family-sans-serif: 'Saira', sans-serif;
 $jumbotron-bg: rgba(0, 0, 0, 0.1);
 $jumbotron-color: white;
+$link-color: pink;
+$link-hover-color: none;
+$link-hover-decoration: none;
 
 // Overrides go here.
 // Import Bootstrap defaults.
 @import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/scss/_functions.scss';
+@import '~bootstrap/scss/mixins/_breakpoints.scss';
+@import '~bootstrap/scss/_variables.scss';
+
+@include media-breakpoint-down(sm) {
+  .top-buffer-section {
+    margin-top: 60px;
+  }
+
+  .top-buffer-sm {
+    margin-top: 18px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .top-buffer-section {
+    margin-top: 30px;
+  }
+}

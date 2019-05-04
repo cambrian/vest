@@ -6,18 +6,25 @@ import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import Tutorial from './Tutorial';
 
 const App: React.FC = () => (
-  <Container>
+  <Container className="top-buffer bottom-buffer">
     <Row>
-      <Col xs={{ span: 1 }}>
+      <Col>
         <h1 className="title">
           <Badge>Vest</Badge>
         </h1>
       </Col>
       <Col className="text-right my-auto">
-        <h4 className="menu">
-          <Badge>About</Badge>·<Badge>Contact</Badge>·<Badge>GitHub</Badge>
+        <h4 id="menu">
+          <Badge>
+            <a href="mailto:tech@cambrian.dev">Contact</a>
+          </Badge>
+          ·
+          <Badge>
+            <a href="https://github.com/cambrian">GitHub</a>
+          </Badge>
         </h4>
       </Col>
     </Row>
@@ -44,14 +51,14 @@ const App: React.FC = () => (
         </Jumbotron>
       </Col>
       <Col md={{ span: 4 }}>
-        <Card className="card-signup">
+        <Card className="card-info card-active card-static">
           <Card.Body>
             <Card.Title>
               <b>Join our alpha!</b>
             </Card.Title>
             <Card.Text>
               We're looking for users to purchase our initial run of staking
-              contracts, which are backed by Polychain Capital.
+              contracts, which are backed by Polychain Labs.
               <br />
               <br />
               Applications will be reviewed on a rolling basis, so please take a
@@ -60,6 +67,21 @@ const App: React.FC = () => (
             <Button variant="primary">Apply Now</Button>
           </Card.Body>
         </Card>
+      </Col>
+    </Row>
+    <Row className="top-buffer-section">
+      <Col>
+        <h3 className="subheader">How It Works</h3>
+        <Tutorial />
+      </Col>
+    </Row>
+    <Row id="footer">
+      <Col>
+        ©2019{' '}
+        <a target="_" href="https://cambrian.dev">
+          Cambrian Technologies
+        </a>
+        . All rights reserved.
       </Col>
     </Row>
   </Container>
