@@ -175,12 +175,17 @@ const Tutorial: React.FC = () => {
         )}
         {step === 3 && (
           <code className="tutorial-confirm">
-            Your staking contract has been confirmed! You will receive{' '}
+            Your staking contract has been confirmed!
+            <br />
+            <br />
+            You will receive{' '}
             <span className="tutorial-highlight">3 months</span> and{' '}
             <span className="tutorial-highlight">314.15 XTZ</span> worth of
             staking rewards to your address starting in{' '}
-            <span className="tutorial-highlight">KT1VyvP</span>. Your order code
-            is <span className="tutorial-highlight">7BE34C87DF</span>.
+            <span className="tutorial-highlight">KT1VyvP</span>.<br />
+            <br />
+            Your order code is{' '}
+            <span className="tutorial-highlight">7BE34C87DF</span>.
           </code>
         )}
       </Col>
