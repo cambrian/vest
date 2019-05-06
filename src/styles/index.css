@@ -81,9 +81,12 @@ body {
   color: gold;
 }
 
-.tutorial-form,
-.tutorial-confirm {
+.tutorial-form {
   font-size: 150%;
+}
+
+.tutorial-confirm {
+  font-size: 125%;
 }
 
 .tutorial-form button {

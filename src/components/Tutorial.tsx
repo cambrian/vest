@@ -178,7 +178,14 @@ const Tutorial: React.FC = () => {
             Your staking contract has been confirmed!
             <br />
             <br />
-            You will receive{' '}
+            Please send <span className="tutorial-highlight">
+              0.0064 BTC
+            </span>{' '}
+            to the following payment address within the next 24 hours:{' '}
+            <span className="tutorial-highlight">1A1zP1e...</span>
+            <br />
+            <br />
+            You will then receive{' '}
             <span className="tutorial-highlight">3 months</span> and{' '}
             <span className="tutorial-highlight">314.15 XTZ</span> worth of
             staking rewards to your address starting in{' '}

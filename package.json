@@ -10,6 +10,7 @@
     "@types/react-input-autosize": "^2.0.0",
     "@types/react-select": "^2.0.17",
     "bootstrap": "^4.3.1",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.17.0",
     "react": "^16.8.6",
@@ -20,11 +21,14 @@
     "react-select": "^2.4.3",
     "typescript": "3.4.5"
   },
+  "homepage": "https://cambrian.dev/vest",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
