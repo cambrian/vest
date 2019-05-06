@@ -61,7 +61,6 @@ const TutorialSelect: React.FC<TutorialSelectProps> = (
 
 const Tutorial: React.FC = () => {
   const [step, setStep] = useState(1);
-  // TODO.
   return (
     <Row className="top-buffer">
       <Col md={{ span: 6 }}>
