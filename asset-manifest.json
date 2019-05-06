@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/vest/static/css/main.a41e5b79.chunk.css",
+    "main.js": "/vest/static/js/main.6466b82d.chunk.js",
+    "main.js.map": "/vest/static/js/main.6466b82d.chunk.js.map",
+    "runtime~main.js": "/vest/static/js/runtime~main.7a119209.js",
+    "runtime~main.js.map": "/vest/static/js/runtime~main.7a119209.js.map",
+    "static/js/2.e361161c.chunk.js": "/vest/static/js/2.e361161c.chunk.js",
+    "static/js/2.e361161c.chunk.js.map": "/vest/static/js/2.e361161c.chunk.js.map",
+    "index.html": "/vest/index.html",
+    "precache-manifest.7c65d226a013e11ac97c45ba6139b57d.js": "/vest/precache-manifest.7c65d226a013e11ac97c45ba6139b57d.js",
+    "service-worker.js": "/vest/service-worker.js",
+    "static/css/main.a41e5b79.chunk.css.map": "/vest/static/css/main.a41e5b79.chunk.css.map"
+  }
+}
