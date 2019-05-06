@@ -64,62 +64,7 @@ const Tutorial: React.FC = () => {
   const [step, setStep] = useState(1);
   return (
     <Row className="top-buffer">
-      <Col md={{ span: 6 }}>
-        <Card
-          className={'card-info ' + (step === 1 ? 'card-active' : '')}
-          onClick={() => setStep(1)}
-        >
-          <Card.Body>
-            <Card.Title>
-              <b>Step 1: Select Terms</b>
-            </Card.Title>
-            <Card.Text>
-              Select a token, amount to stake, and duration to stake. These are
-              the <i>terms</i> of your staking contract.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card
-          className={
-            'card-info top-buffer ' + (step === 2 ? 'card-active' : '')
-          }
-          onClick={() => setStep(2)}
-        >
-          <Card.Body>
-            <Card.Title>
-              <b>Step 2: Checkout</b>
-            </Card.Title>
-            <Card.Text>
-              Review the quoted BTC price for your selected terms. If everything
-              looks correct, submit a <i>payout address</i> for receiving your
-              rewards.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card
-          className={
-            'card-info top-buffer ' + (step === 3 ? 'card-active' : '')
-          }
-          onClick={() => setStep(3)}
-        >
-          <Card.Body>
-            <Card.Title>
-              <b>Step 3: Confirmation</b>
-            </Card.Title>
-            <Card.Text>
-              After checkout, you'll see a <i>payment address</i> and an{' '}
-              <i>order code</i>. Send the indicated amount of BTC to this
-              address within 24 hours (or you'll have to checkout again).
-              <br />
-              <br />
-              Once the payment is fulfilled, watch the rewards roll in to your
-              payout address! You can sit back and relax, but if you have any
-              further questions, simply contact us with your order code.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col className="top-buffer-sm">
+      <Col className="order-sm-12">
         {step === 1 && (
           <Form className="tutorial-form">
             <code>
@@ -195,6 +140,61 @@ const Tutorial: React.FC = () => {
             <span className="tutorial-highlight">7BE34C87DF</span>.
           </code>
         )}
+      </Col>
+      <Col md={{ span: 6 }} className="top-buffer-sm order-sm-1">
+        <Card
+          className={'card-info ' + (step === 1 ? 'card-active' : '')}
+          onClick={() => setStep(1)}
+        >
+          <Card.Body>
+            <Card.Title>
+              <b>Step 1: Select Terms</b>
+            </Card.Title>
+            <Card.Text>
+              Select a token, amount to stake, and duration to stake. These are
+              the <i>terms</i> of your staking contract.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card
+          className={
+            'card-info top-buffer ' + (step === 2 ? 'card-active' : '')
+          }
+          onClick={() => setStep(2)}
+        >
+          <Card.Body>
+            <Card.Title>
+              <b>Step 2: Checkout</b>
+            </Card.Title>
+            <Card.Text>
+              Review the quoted BTC price for your selected terms. If everything
+              looks correct, submit a <i>payout address</i> for receiving your
+              rewards.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card
+          className={
+            'card-info top-buffer ' + (step === 3 ? 'card-active' : '')
+          }
+          onClick={() => setStep(3)}
+        >
+          <Card.Body>
+            <Card.Title>
+              <b>Step 3: Confirmation</b>
+            </Card.Title>
+            <Card.Text>
+              After checkout, you'll see a <i>payment address</i> and an{' '}
+              <i>order code</i>. Send the indicated amount of BTC to this
+              address within 24 hours (or you'll have to checkout again).
+              <br />
+              <br />
+              Once the payment is fulfilled, watch the rewards roll in to your
+              payout address! You can sit back and relax, but if you have any
+              further questions, simply contact us with your order code.
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </Col>
     </Row>
   );
