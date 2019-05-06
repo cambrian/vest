@@ -12,14 +12,15 @@ const tutorialSelectStyles = {
   control: (provided: object) => ({
     ...provided,
     background: 'transparent',
-    border: '1px solid white',
-    '&:hover': { border: '1px solid lightskyblue' },
+    border: 'none',
+    'border-bottom': '1px solid white',
+    '&:hover': { 'border-bottom': '1px solid lightskyblue' },
     'border-radius': 0,
     boxShadow: 'none',
     'caret-color': 'transparent',
     color: 'white',
-    height: '44px',
-    'min-height': '44px'
+    height: '34px',
+    'min-height': '34px'
   }),
   dropdownIndicator: (provided: object) => ({
     ...provided,
@@ -133,7 +134,7 @@ const Tutorial: React.FC = () => {
               />{' '}
               and{' '}
               <AutosizeInput
-                className="autosize-input tutorial-autosize"
+                className="autosize-input"
                 type="text"
                 value="314.15"
                 readOnly
@@ -158,9 +159,9 @@ const Tutorial: React.FC = () => {
             <code>
               ...which will cost you{' '}
               <span className="tutorial-highlight">0.0064 BTC</span>. Please
-              enter your XTZ payout address:{' '}
+              enter your payout address for XTZ rewards:{' '}
               <AutosizeInput
-                className="autosize-input tutorial-autosize"
+                className="autosize-input"
                 type="text"
                 value="KT1VyvP..."
                 readOnly
