@@ -16,7 +16,7 @@ const App: React.FC = () => (
           <Badge>Vest</Badge>
         </h1>
       </Col>
-      <Col className="text-right my-auto">
+      <Col xs={{ span: 8 }} className="text-right my-auto">
         <h4 id="menu">
           <Badge>
             <a href="mailto:tech@cambrian.dev">Contact</a>
