@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/vest/static/css/main.a41e5b79.chunk.css",
+    "main.css": "/vest/static/css/main.df3fe4d4.chunk.css",
     "main.js": "/vest/static/js/main.79a1f3d2.chunk.js",
     "main.js.map": "/vest/static/js/main.79a1f3d2.chunk.js.map",
     "runtime~main.js": "/vest/static/js/runtime~main.7a119209.js",
@@ -8,8 +8,8 @@
     "static/js/2.389b76b7.chunk.js": "/vest/static/js/2.389b76b7.chunk.js",
     "static/js/2.389b76b7.chunk.js.map": "/vest/static/js/2.389b76b7.chunk.js.map",
     "index.html": "/vest/index.html",
-    "precache-manifest.b6d873491acd261289d004edda2d03c4.js": "/vest/precache-manifest.b6d873491acd261289d004edda2d03c4.js",
+    "precache-manifest.707539c7d3d990804154784808c21053.js": "/vest/precache-manifest.707539c7d3d990804154784808c21053.js",
     "service-worker.js": "/vest/service-worker.js",
-    "static/css/main.a41e5b79.chunk.css.map": "/vest/static/css/main.a41e5b79.chunk.css.map"
+    "static/css/main.df3fe4d4.chunk.css.map": "/vest/static/css/main.df3fe4d4.chunk.css.map"
   }
 }
