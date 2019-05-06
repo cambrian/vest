@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: white !important;
+  background-image: linear-gradient(to left, #667eea, #764ba2);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Autosizing text inputs. */
+.autosize-input,
+.autosize-input input {
+  padding: none;
+  border: none;
+  color: white;
+  background: transparent !important;
+}
+
+.autosize-input {
+  vertical-align: center;
+}
+
+.autosize-input input {
+  text-overflow: ellipsis;
+  border: 1px solid white;
+  text-align: center;
+}
+
+.autosize-input input:focus,
+.autosize-input input:not([disabled]):hover {
+  border: 1px solid lightskyblue;
+  outline: none;
+}
+
+/* Inline wrapper for `react-select`. */
+.inline-select-wrapper {
+  display: inline-block;
+  vertical-align: center;
+}
+
+/* Misc utility classes. */
+.top-buffer {
+  margin-top: 18px;
+}
+
+.chevron {
+  color: lightskyblue;
+}
+
+.card-info {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
+}
+
+.card-info.card-active {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.card-info:hover:not(.card-active):not(.card-static) {
+  cursor: pointer;
+}
+
+#menu {
+  color: black;
+}
+
+#menu > .badge > a,
+#menu > .badge > a:hover {
+  color: white !important;
+}
+
+/* One-off settings. */
+#footer {
+  margin-top: 72px;
+  margin-bottom: 36px;
+  text-align: center;
+  font-size: 80%;
+}
+
+.tutorial-highlight {
+  color: gold;
+}
+
+.tutorial-form,
+.tutorial-confirm {
+  font-size: 200%;
+  line-height: 3.5rem;
+}
+
+.tutorial-form button {
+  font-size: 75%;
+}
+
+.tutorial-autosize input {
+  line-height: 40px;
+}
