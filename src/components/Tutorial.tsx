@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { engineName, isSafari } from 'react-device-detect';
 
 import AutosizeInput from 'react-input-autosize';
 import Button from 'react-bootstrap/Button';
@@ -8,6 +9,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Select from 'react-select';
 
+// Many sad hacks here for cross-browser consistency.
+// Do not try this at home.
 const tutorialSelectStyles = {
   control: (provided: object) => ({
     ...provided,
@@ -19,17 +22,30 @@ const tutorialSelectStyles = {
     boxShadow: 'none',
     'caret-color': 'transparent',
     color: 'white',
-    height: '34px',
-    'min-height': '34px'
+    height: engineName === 'WebKit' ? (isSafari ? '34px' : '35px') : '33.5px',
+    'min-height':
+      engineName === 'WebKit' ? (isSafari ? '34px' : '35px') : '33.5px',
+    '& > *': {
+      marginTop: engineName === 'WebKit' ? undefined : '-4px',
+      marginBottom: isSafari ? undefined : 'auto'
+    }
   }),
   dropdownIndicator: (provided: object) => ({
     ...provided,
     color: 'white',
     '&:hover': { color: 'white' }
   }),
+  indicatorSeparator: (provided: object) => ({
+    ...provided,
+    backgroundColor: 'white',
+    height: '15px',
+    marginTop: 'auto',
+    marginBottom: 'auto'
+  }),
   singleValue: (provided: object) => ({
     ...provided,
     color: 'white',
+    marginBottom: isSafari ? undefined : 'auto',
     maxWidth: undefined,
     position: undefined,
     transform: undefined
@@ -56,7 +72,7 @@ const TutorialSelect: React.FC<TutorialSelectProps> = (
   props: TutorialSelectProps
 ) => (
   <div className="inline-select-wrapper">
-    <Select {...props} styles={tutorialSelectStyles} />
+    <Select {...props} isSearchable={false} styles={tutorialSelectStyles} />
   </div>
 );
 
@@ -64,7 +80,7 @@ const Tutorial: React.FC = () => {
   const [step, setStep] = useState(1);
   return (
     <Row className="top-buffer">
-      <Col className="order-sm-12">
+      <Col className="order-md-12">
         {step === 1 && (
           <Form className="tutorial-form">
             <code>
@@ -119,7 +135,7 @@ const Tutorial: React.FC = () => {
           </Form>
         )}
         {step === 3 && (
-          <code className="tutorial-confirm">
+          <code id="tutorial-confirm">
             Your staking contract has been confirmed!
             <br />
             <br />
@@ -141,7 +157,7 @@ const Tutorial: React.FC = () => {
           </code>
         )}
       </Col>
-      <Col md={{ span: 6 }} className="top-buffer-sm order-sm-1">
+      <Col md={{ span: 6 }} className="top-buffer-sm order-md-1">
         <Card
           className={'card-info ' + (step === 1 ? 'card-active' : '')}
           onClick={() => setStep(1)}

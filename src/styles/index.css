@@ -7,22 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Autosizing text inputs. */
+/* Autosizing text inputs. TODO: Debug mobile. */
 .autosize-input,
-.autosize-input input {
+.autosize-input input,
+.autosize-input input:disabled {
   padding: none;
   border: none;
+  border-radius: 0;
   color: white;
-  background: transparent !important;
+  background: transparent;
 }
 
-.autosize-input {
-  vertical-align: center;
-}
-
-.autosize-input input {
-  text-overflow: ellipsis;
+.autosize-input input,
+.autosize-input input:disabled {
   border-bottom: 1px solid white;
+  text-overflow: ellipsis;
   text-align: center;
 }
 
@@ -35,7 +34,6 @@ body {
 /* Inline wrapper for `react-select`. */
 .inline-select-wrapper {
   display: inline-block;
-  vertical-align: center;
 }
 
 /* Misc utility classes. */
@@ -60,6 +58,24 @@ body {
   cursor: pointer;
 }
 
+/* Tutorial elements. */
+.tutorial-highlight {
+  color: gold;
+}
+
+.tutorial-form {
+  font-size: 150%;
+}
+
+#tutorial-confirm {
+  font-size: 125%;
+}
+
+.tutorial-form button {
+  line-height: 75%;
+}
+
+/* Other one-off settings. */
 #menu {
   color: black;
 }
@@ -69,26 +85,9 @@ body {
   color: white !important;
 }
 
-/* One-off settings. */
 #footer {
   margin-top: 72px;
   margin-bottom: 36px;
   text-align: center;
   font-size: 80%;
-}
-
-.tutorial-highlight {
-  color: gold;
-}
-
-.tutorial-form {
-  font-size: 150%;
-}
-
-.tutorial-confirm {
-  font-size: 125%;
-}
-
-.tutorial-form button {
-  line-height: 75%;
 }
