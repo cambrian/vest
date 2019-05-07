@@ -23,7 +23,9 @@ const App: React.FC = () => (
           </Badge>
           ·
           <Badge>
-            <a href="https://github.com/cambrian">GitHub</a>
+            <a target="_" href="https://github.com/cambrian">
+              GitHub
+            </a>
           </Badge>
         </h4>
       </Col>
