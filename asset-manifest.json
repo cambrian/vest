@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/vest/static/css/main.3517e2e8.chunk.css",
-    "main.js": "/vest/static/js/main.a5ffdfcb.chunk.js",
-    "main.js.map": "/vest/static/js/main.a5ffdfcb.chunk.js.map",
+    "main.css": "/vest/static/css/main.55a63e35.chunk.css",
+    "main.js": "/vest/static/js/main.c7e7f102.chunk.js",
+    "main.js.map": "/vest/static/js/main.c7e7f102.chunk.js.map",
     "runtime~main.js": "/vest/static/js/runtime~main.7a119209.js",
     "runtime~main.js.map": "/vest/static/js/runtime~main.7a119209.js.map",
     "static/js/2.8b5e9b4b.chunk.js": "/vest/static/js/2.8b5e9b4b.chunk.js",
     "static/js/2.8b5e9b4b.chunk.js.map": "/vest/static/js/2.8b5e9b4b.chunk.js.map",
     "index.html": "/vest/index.html",
-    "precache-manifest.80afd55cbed405316a45d94930c35caf.js": "/vest/precache-manifest.80afd55cbed405316a45d94930c35caf.js",
+    "precache-manifest.63081cdd7e64f729386a4a375693dc58.js": "/vest/precache-manifest.63081cdd7e64f729386a4a375693dc58.js",
     "service-worker.js": "/vest/service-worker.js",
-    "static/css/main.3517e2e8.chunk.css.map": "/vest/static/css/main.3517e2e8.chunk.css.map"
+    "static/css/main.55a63e35.chunk.css.map": "/vest/static/css/main.55a63e35.chunk.css.map"
   }
 }
