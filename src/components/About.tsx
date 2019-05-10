@@ -5,8 +5,8 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 
 const About: React.FC = () => (
-  <div>
-    <Row id="unbuffer-jumbotron" className="top-buffer">
+  <div id="about-root">
+    <Row className="top-buffer">
       <Col md={{ span: 8 }}>
         <Jumbotron>
           <h1>About</h1>
