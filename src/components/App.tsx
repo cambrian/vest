@@ -1,9 +1,4 @@
-import {
-  Link,
-  NavLink,
-  Route,
-  BrowserRouter as Router
-} from 'react-router-dom';
+import { Link, NavLink, Route, HashRouter as Router } from 'react-router-dom';
 
 import About from './About';
 import Badge from 'react-bootstrap/Badge';
@@ -15,7 +10,7 @@ import Splash from './Splash';
 
 const App: React.FC = () => {
   return (
-    <Router basename="/vest">
+    <Router>
       <Container className="top-buffer bottom-buffer">
         <Row>
           <Col>
