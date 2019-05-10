@@ -11,7 +11,7 @@ import Splash from './Splash';
 const App: React.FC = () => {
   return (
     <Router>
-      <Container className="top-buffer bottom-buffer">
+      <Container className="top-buffer">
         <Row>
           <Col>
             <h1 id="title">
