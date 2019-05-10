@@ -27,11 +27,11 @@ const App: React.FC = () => {
           </Col>
           <Col xs={{ span: 8 }} className="text-right my-auto">
             <h4 id="menu">
-              <NavLink to="" exact activeClassName="menu-active">
+              <NavLink to="/" activeClassName="menu-active">
                 <Badge>Home</Badge>
               </NavLink>
               ·
-              <NavLink to="about" exact activeClassName="menu-active">
+              <NavLink to="/about" exact activeClassName="menu-active">
                 <Badge>About</Badge>
               </NavLink>
             </h4>
