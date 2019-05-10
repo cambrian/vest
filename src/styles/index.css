@@ -14,7 +14,7 @@ body {
   padding: none;
   border: none;
   border-radius: 0;
-  color: white;
+  color: yellow;
   background: transparent;
 }
 
@@ -80,9 +80,10 @@ body {
   color: black;
 }
 
-#menu > .badge > a,
-#menu > .badge > a:hover {
-  color: white !important;
+#title > a > .badge,
+#menu > a > .badge,
+#menu > a > .badge:hover {
+  color: white;
 }
 
 #footer {
@@ -90,4 +91,8 @@ body {
   margin-bottom: 36px;
   text-align: center;
   font-size: 80%;
+}
+
+#about-body {
+  margin-top: 1rem;
 }

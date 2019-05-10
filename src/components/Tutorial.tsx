@@ -16,8 +16,8 @@ const tutorialSelectStyles = {
     ...provided,
     background: 'transparent',
     border: 'none',
-    'border-bottom': '1px solid white',
-    '&:hover': { 'border-bottom': '1px solid lightskyblue' },
+    'border-bottom': 'none',
+    '&:hover': { 'border-bottom': 'none' },
     'border-radius': 0,
     boxShadow: 'none',
     'caret-color': 'transparent',
@@ -28,7 +28,9 @@ const tutorialSelectStyles = {
     '& > *': {
       marginTop: engineName === 'WebKit' ? undefined : '-4px',
       marginBottom: isSafari ? undefined : 'auto'
-    }
+    },
+    marginLeft: -5,
+    marginRight: -5
   }),
   dropdownIndicator: (provided: object) => ({
     ...provided,
@@ -44,7 +46,7 @@ const tutorialSelectStyles = {
   }),
   singleValue: (provided: object) => ({
     ...provided,
-    color: 'white',
+    color: 'yellow',
     marginBottom: isSafari ? undefined : 'auto',
     maxWidth: undefined,
     position: undefined,
@@ -84,7 +86,7 @@ const Tutorial: React.FC = () => {
         {step === 1 && (
           <Form className="tutorial-form">
             <code>
-              You are purchasing{' '}
+              You are purchasing rights to{' '}
               <TutorialSelect
                 options={[
                   { value: '3', label: '3 months' },
