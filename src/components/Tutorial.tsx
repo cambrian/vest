@@ -94,7 +94,6 @@ const Tutorial: React.FC = () => {
                 type="text"
                 value="3141.59"
                 readOnly
-                disabled
               />{' '}
               <TutorialSelect
                 options={[
@@ -154,7 +153,6 @@ const Tutorial: React.FC = () => {
                 type="text"
                 value="KT1VyvP..."
                 readOnly
-                disabled
               />{' '}
               <Button variant="dark" onClick={() => setStep(3)}>
                 Submit

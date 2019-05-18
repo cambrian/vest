@@ -34,7 +34,7 @@ body {
 
 .autosize-input input:focus,
 .autosize-input input:not([disabled]):hover {
-  border-bottom: 1px solid lightskyblue;
+  border-bottom: 1px solid white; /* lightskyblue */
   outline: none;
 }
 
