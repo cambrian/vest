@@ -103,16 +103,16 @@ const Tutorial: React.FC = () => {
                 ]}
                 value={{ value: 'XTZ', label: 'Tezzies' }}
               />{' '}
-              for{' '}
+              for a{' '}
               <TutorialSelect
                 options={[
-                  { value: '3', label: '3 months' },
-                  { value: '6', label: '6 months' },
-                  { value: '9', label: '9 months' }
+                  { value: '3', label: '3 month' },
+                  { value: '6', label: '6 month' },
+                  { value: '9', label: '9 month' }
                 ]}
-                value={{ value: '3', label: '3 months' }}
+                value={{ value: '3', label: '3 month' }}
               />{' '}
-              time...{' '}
+              duration...{' '}
               <Button variant="dark" onClick={() => setStep(2)}>
                 Continue
               </Button>
@@ -133,7 +133,8 @@ const Tutorial: React.FC = () => {
               >
                 <span className="tutorial-highlight">0.0103 BTC</span>
               </OverlayTrigger>
-              . At current reward levels, you are expected to earn{' '}
+              . At the current interest rate for staking, you are estimated to
+              earn{' '}
               <OverlayTrigger
                 placement="top"
                 overlay={
@@ -143,8 +144,11 @@ const Tutorial: React.FC = () => {
                 }
               >
                 <span className="tutorial-highlight">55.83 XTZ</span>
-              </OverlayTrigger>
-              . Please enter your XTZ payout address:{' '}
+              </OverlayTrigger>{' '}
+              in rewards (although this amount is liable to vary).
+              <br />
+              <br />
+              Please enter your XTZ payout address:{' '}
               <AutosizeInput
                 className="autosize-input"
                 type="text"
@@ -170,10 +174,12 @@ const Tutorial: React.FC = () => {
             <span className="tutorial-highlight">1A1zP1e...</span>
             <br />
             <br />
-            You will then receive the rewards from staking{' '}
-            <span className="tutorial-highlight">3141.59 XTZ</span> for{' '}
-            <span className="tutorial-highlight">3 months</span>, paid to your
-            address beginning in{' '}
+            Once payment is confirmed, you should begin receiving the rewards
+            from staking <span className="tutorial-highlight">
+              3141.59 XTZ
+            </span>{' '}
+            for a <span className="tutorial-highlight">3 month</span> duration,
+            paid out to your address beginning in{' '}
             <span className="tutorial-highlight">KT1VyvP</span>.
             <br />
             <br />
