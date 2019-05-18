@@ -6,8 +6,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Row from 'react-bootstrap/Row';
 import Select from 'react-select';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 // Many sad hacks here for cross-browser consistency.
 // Do not try this at home.
@@ -86,20 +88,11 @@ const Tutorial: React.FC = () => {
         {step === 1 && (
           <Form className="tutorial-form">
             <code>
-              You are purchasing rights to{' '}
-              <TutorialSelect
-                options={[
-                  { value: '3', label: '3 months' },
-                  { value: '6', label: '6 months' },
-                  { value: '9', label: '9 months' }
-                ]}
-                value={{ value: '3', label: '3 months' }}
-              />{' '}
-              and{' '}
+              You are purchasing the rewards from staking{' '}
               <AutosizeInput
                 className="autosize-input"
                 type="text"
-                value="314.15"
+                value="3141.59"
                 readOnly
                 disabled
               />{' '}
@@ -110,7 +103,16 @@ const Tutorial: React.FC = () => {
                 ]}
                 value={{ value: 'XTZ', label: 'Tezzies' }}
               />{' '}
-              worth of staking rewards...{' '}
+              for{' '}
+              <TutorialSelect
+                options={[
+                  { value: '3', label: '3 months' },
+                  { value: '6', label: '6 months' },
+                  { value: '9', label: '9 months' }
+                ]}
+                value={{ value: '3', label: '3 months' }}
+              />{' '}
+              time...{' '}
               <Button variant="dark" onClick={() => setStep(2)}>
                 Continue
               </Button>
@@ -121,8 +123,28 @@ const Tutorial: React.FC = () => {
           <Form className="tutorial-form">
             <code>
               ...which will cost you{' '}
-              <span className="tutorial-highlight">0.0064 BTC</span>. Please
-              enter your payout address for XTZ rewards:{' '}
+              <OverlayTrigger
+                placement="top"
+                overlay={
+                  <Tooltip className="tooltip-code" id={`tooltip-cost`}>
+                    $75.50 as of May 17
+                  </Tooltip>
+                }
+              >
+                <span className="tutorial-highlight">0.0103 BTC</span>
+              </OverlayTrigger>
+              . At current reward levels, you are expected to earn{' '}
+              <OverlayTrigger
+                placement="top"
+                overlay={
+                  <Tooltip className="tooltip-code" id={`tooltip-rewards`}>
+                    $92.70 as of May 17
+                  </Tooltip>
+                }
+              >
+                <span className="tutorial-highlight">55.83 XTZ</span>
+              </OverlayTrigger>
+              . Please enter your XTZ payout address:{' '}
               <AutosizeInput
                 className="autosize-input"
                 type="text"
@@ -142,17 +164,18 @@ const Tutorial: React.FC = () => {
             <br />
             <br />
             Please send <span className="tutorial-highlight">
-              0.0064 BTC
+              0.0103 BTC
             </span>{' '}
             to the following payment address within the next 24 hours:{' '}
             <span className="tutorial-highlight">1A1zP1e...</span>
             <br />
             <br />
-            You will then receive{' '}
-            <span className="tutorial-highlight">3 months</span> and{' '}
-            <span className="tutorial-highlight">314.15 XTZ</span> worth of
-            staking rewards to your address starting in{' '}
-            <span className="tutorial-highlight">KT1VyvP</span>.<br />
+            You will then receive the rewards from staking{' '}
+            <span className="tutorial-highlight">3141.59 XTZ</span> for{' '}
+            <span className="tutorial-highlight">3 months</span>, paid to your
+            address beginning in{' '}
+            <span className="tutorial-highlight">KT1VyvP</span>.
+            <br />
             <br />
             Your order code is{' '}
             <span className="tutorial-highlight">7BE34C87DF</span>.

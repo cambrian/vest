@@ -10,7 +10,7 @@ const Apply: React.FC = () => (
       </Card.Title>
       <Card.Text>
         We're looking for users to purchase our initial run of staking
-        contracts, which are backed by Polychain Labs.
+        contracts.
         <br />
         <br />
         Applications will be reviewed on a rolling basis, so please take a brief

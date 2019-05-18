@@ -15,7 +15,7 @@ const Splash: React.FC = () => (
           </h1>
           <h3>
             <span className="chevron">>></span> Earn dividends from the largest
-            miners.
+            PoS miners.
           </h3>
           <p>
             <br />

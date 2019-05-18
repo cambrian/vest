@@ -7,6 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Same as code tags. */
+.tooltip-code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace !important;
+  font-size: 80% !important;
+}
+
 /* Autosizing text inputs. TODO: Debug mobile. */
 .autosize-input,
 .autosize-input input,

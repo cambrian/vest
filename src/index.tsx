@@ -7,8 +7,7 @@ import ReactDOM from 'react-dom';
 
 // TODO: Google Analytics and TypeForm.
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // TODO: Add strict mode back (`react-bootstrap` caused problems).
+  <App />,
   document.getElementById('root')
 );
