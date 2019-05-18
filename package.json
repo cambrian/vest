@@ -24,7 +24,7 @@
     "react-select": "^2.4.3",
     "typescript": "3.4.5"
   },
-  "homepage": "https://cambrian.dev/vest",
+  "homepage": "https://vest.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
