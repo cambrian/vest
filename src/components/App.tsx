@@ -1,4 +1,11 @@
-import { Link, NavLink, Route, HashRouter as Router } from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  Redirect,
+  Route,
+  HashRouter as Router,
+  Switch
+} from 'react-router-dom';
 
 import About from './About';
 import Badge from 'react-bootstrap/Badge';
@@ -32,8 +39,11 @@ const App: React.FC = () => {
             </h4>
           </Col>
         </Row>
-        <Route path="/" exact component={Splash} />
-        <Route path="/about" component={About} />
+        <Switch>
+          <Route path="/" exact component={Splash} />
+          <Route path="/about" component={About} />
+          <Redirect to="/" />
+        </Switch>
         <Row id="footer">
           <Col>
             ©2019{' '}
