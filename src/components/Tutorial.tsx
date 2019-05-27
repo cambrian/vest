@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { engineName, isSafari } from 'react-device-detect';
 
 import AutosizeInput from 'react-input-autosize';
@@ -24,6 +24,7 @@ const tutorialSelectStyles = {
     boxShadow: 'none',
     'caret-color': 'transparent',
     color: 'white',
+    cursor: 'pointer',
     height: engineName === 'WebKit' ? (isSafari ? '34px' : '35px') : '33.5px',
     'min-height':
       engineName === 'WebKit' ? (isSafari ? '34px' : '35px') : '33.5px',
@@ -67,52 +68,135 @@ const tutorialSelectStyles = {
   })
 };
 
-interface TutorialSelectProps {
-  options: object[];
-  value: object;
-}
-
-const TutorialSelect: React.FC<TutorialSelectProps> = (
-  props: TutorialSelectProps
-) => (
+const TutorialSelect: React.FC<any> = (props: any) => (
   <div className="inline-select-wrapper">
     <Select {...props} isSearchable={false} styles={tutorialSelectStyles} />
   </div>
 );
 
-const Tutorial: React.FC = () => {
+const Tutorial: React.FC<{
+  tutorialRef: React.MutableRefObject<any>;
+}> = (props: { tutorialRef: React.MutableRefObject<any> }) => {
   const [step, setStep] = useState(1);
+  const [stepChanged, setStepChanged] = useState(false);
+  const [stakedAmount, setStakedAmount] = useState('1000.00');
+  const [stakedCurrency, setStakedCurrency] = useState({
+    value: 'XTZ',
+    label: 'Tezzies'
+  });
+  const [stakedDuration, setStakedDuration] = useState({
+    value: 3,
+    label: '3 month'
+  });
+
+  // Scroll to top of tutorial.
+  useEffect(() => {
+    if (props.tutorialRef.current !== null && stepChanged) {
+      const tutorialTop = props.tutorialRef.current.getBoundingClientRect().top;
+      window.scroll({ top: tutorialTop + window.scrollY - 48 });
+      setStepChanged(false);
+    }
+  }, [props.tutorialRef, stepChanged]);
+
+  // Set step and request scroll to start of tutorial.
+  const setStepAndScroll = (newStep: number) => {
+    if (newStep !== step) {
+      setStep(newStep);
+      setStepChanged(true);
+    }
+  };
+
+  // Crimp inputs to 8 characters.
+  const setStakedAmountOnChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const amount = event.target.value;
+    if (amount.length <= 8) {
+      setStakedAmount(amount);
+    }
+  };
+
+  // Crimp input values on blur.
+  const setStakedAmountOnBlur = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    let amount = parseFloat(stakedAmount) || 1000;
+    if (amount >= 100000 || amount <= 0) {
+      amount = 1000;
+    }
+    setStakedAmount(amount.toFixed(2));
+  };
+
+  // Currency-specific properties.
+  const dummyAddresses: { [index: string]: string } = {
+    XTZ: 'KT1ExampleAddress',
+    ATOM: 'cosmos1ExampleAddress'
+  };
+  const rates: { [index: string]: number } = {
+    XTZ: 0.0059,
+    ATOM: 0.0105
+  };
+  // As of 26 May 2019 on CoinMarketCap.
+  const btcPrices: { [index: string]: number } = {
+    XTZ: 0.0001908,
+    ATOM: 0.00052302
+  };
+  const usdPrices: { [index: string]: number } = {
+    BTC: 8730.59,
+    XTZ: 1.67,
+    ATOM: 4.56
+  };
+
+  // Calculate compounded rewards using MPR.
+  const symbol = stakedCurrency.value;
+  const duration = stakedDuration.value;
+  const rewards = parseFloat(stakedAmount) * rates[symbol] * duration;
+  const rewardsUsd = rewards * usdPrices[symbol];
+
+  // Calculate purchase price in BTC/USD.
+  const contractDiscount = 0.6;
+  const purchasePriceBtc = contractDiscount * rewards * btcPrices[symbol];
+  const purchasePriceUsd = purchasePriceBtc * usdPrices['BTC'];
+
   return (
     <Row className="top-buffer">
       <Col className="order-md-12">
         {step === 1 && (
           <Form className="tutorial-form">
             <code>
-              You are purchasing the rewards from staking{' '}
+              <span className="tutorial-highlight bold">Example:</span> You are
+              purchasing the rewards from staking{' '}
               <AutosizeInput
                 className="autosize-input"
                 type="text"
-                value="3141.59"
-                readOnly
+                value={stakedAmount}
+                onChange={setStakedAmountOnChange}
+                onBlur={setStakedAmountOnBlur}
               />{' '}
               <TutorialSelect
                 options={[
                   { value: 'XTZ', label: 'Tezzies' },
                   { value: 'ATOM', label: 'Cosmos' }
                 ]}
-                value={{ value: 'XTZ', label: 'Tezzies' }}
+                value={stakedCurrency}
+                onChange={(value: { value: string; label: string }) =>
+                  setStakedCurrency(value)
+                }
               />{' '}
               for a{' '}
               <TutorialSelect
                 options={[
-                  { value: '3', label: '3 month' },
-                  { value: '6', label: '6 month' },
-                  { value: '9', label: '9 month' }
+                  { value: 3, label: '3 month' },
+                  { value: 6, label: '6 month' },
+                  { value: 9, label: '9 month' }
                 ]}
-                value={{ value: '3', label: '3 month' }}
+                value={stakedDuration}
+                onChange={(value: { value: number; label: string }) =>
+                  setStakedDuration(value)
+                }
               />{' '}
               duration...{' '}
-              <Button variant="dark" onClick={() => setStep(2)}>
+              <Button variant="dark" onClick={() => setStepAndScroll(2)}>
                 Continue
               </Button>
             </code>
@@ -126,35 +210,38 @@ const Tutorial: React.FC = () => {
                 placement="top"
                 overlay={
                   <Tooltip className="tooltip-code" id={`tooltip-cost`}>
-                    $75.50 as of May 17
+                    ${purchasePriceUsd.toFixed(2)} as of May 26
                   </Tooltip>
                 }
               >
-                <span className="tutorial-highlight">0.0103 BTC</span>
-              </OverlayTrigger>
-              . At the current interest rate for staking, you are estimated to
-              earn{' '}
+                <span className="tutorial-highlight">
+                  {purchasePriceBtc.toFixed(4)}
+                </span>
+              </OverlayTrigger>{' '}
+              <span className="tutorial-highlight">BTC</span>. You are currently
+              estimated to earn{' '}
               <OverlayTrigger
                 placement="top"
                 overlay={
                   <Tooltip className="tooltip-code" id={`tooltip-rewards`}>
-                    $92.70 as of May 17
+                    ${rewardsUsd.toFixed(2)} as of May 26
                   </Tooltip>
                 }
               >
-                <span className="tutorial-highlight">55.83 XTZ</span>
+                <span className="tutorial-highlight">{rewards.toFixed(2)}</span>
               </OverlayTrigger>{' '}
-              in rewards (although this amount is liable to vary).
+              <span className="tutorial-highlight">{symbol}</span> in rewards
+              (liable to vary).
               <br />
               <br />
-              Please enter your XTZ payout address:{' '}
+              Please enter your {symbol} payout address:{' '}
               <AutosizeInput
                 className="autosize-input"
                 type="text"
-                value="KT1VyvP..."
+                value={dummyAddresses[symbol]}
                 readOnly
               />{' '}
-              <Button variant="dark" onClick={() => setStep(3)}>
+              <Button variant="dark" onClick={() => setStepAndScroll(3)}>
                 Submit
               </Button>
             </code>
@@ -165,31 +252,37 @@ const Tutorial: React.FC = () => {
             Your staking contract has been confirmed!
             <br />
             <br />
-            Please send <span className="tutorial-highlight">
-              0.0103 BTC
+            Please send{' '}
+            <span className="tutorial-highlight">
+              {purchasePriceBtc.toFixed(4)} BTC
             </span>{' '}
             to the following payment address within the next 24 hours:{' '}
-            <span className="tutorial-highlight">1A1zP1e...</span>
+            <span className="tutorial-highlight">1SomeBTCAddress.</span>
             <br />
             <br />
             Once payment is confirmed, you should begin receiving the rewards
-            from staking <span className="tutorial-highlight">
-              3141.59 XTZ
+            from staking{' '}
+            <span className="tutorial-highlight">
+              {stakedAmount} {symbol}
             </span>{' '}
-            for a <span className="tutorial-highlight">3 month</span> duration,
-            paid out to your address beginning in{' '}
-            <span className="tutorial-highlight">KT1VyvP</span>.
+            for a{' '}
+            <span className="tutorial-highlight">{stakedDuration.label}</span>{' '}
+            duration, paid out to your address beginning in{' '}
+            <span className="tutorial-highlight">
+              {dummyAddresses[symbol].substr(0, 9)}
+            </span>
+            .
             <br />
             <br />
             Your order code is{' '}
-            <span className="tutorial-highlight">7BE34C87DF</span>.
+            <span className="tutorial-highlight">EXAMPLECODE</span>.
           </code>
         )}
       </Col>
       <Col md={{ span: 6 }} className="top-buffer-sm order-md-1">
         <Card
           className={'card-info ' + (step === 1 ? 'card-active' : '')}
-          onClick={() => setStep(1)}
+          onClick={() => setStepAndScroll(1)}
         >
           <Card.Body>
             <Card.Title>
@@ -205,7 +298,7 @@ const Tutorial: React.FC = () => {
           className={
             'card-info top-buffer ' + (step === 2 ? 'card-active' : '')
           }
-          onClick={() => setStep(2)}
+          onClick={() => setStepAndScroll(2)}
         >
           <Card.Body>
             <Card.Title>
@@ -222,7 +315,7 @@ const Tutorial: React.FC = () => {
           className={
             'card-info top-buffer ' + (step === 3 ? 'card-active' : '')
           }
-          onClick={() => setStep(3)}
+          onClick={() => setStepAndScroll(3)}
         >
           <Card.Body>
             <Card.Title>

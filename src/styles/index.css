@@ -25,16 +25,20 @@ body {
   background: transparent;
 }
 
-.autosize-input input,
-.autosize-input input:disabled {
+.autosize-input input {
   border-bottom: 1px solid white;
   text-overflow: ellipsis;
   text-align: center;
 }
 
+.autosize-input input:disabled,
+.autosize-input input:read-only {
+  border-bottom: none !important;
+}
+
 .autosize-input input:focus,
-.autosize-input input:not([disabled]):hover {
-  border-bottom: 1px solid white; /* lightskyblue */
+.autosize-input input:not([disabled]):not([read-only]):hover {
+  border-bottom: 1px solid lightpink;
   outline: none;
 }
 
@@ -44,12 +48,8 @@ body {
 }
 
 /* Misc utility classes. */
-.top-buffer {
-  margin-top: 18px;
-}
-
-.chevron {
-  color: lightskyblue;
+.bold {
+  font-weight: bold;
 }
 
 .card-info {
@@ -65,6 +65,33 @@ body {
   cursor: pointer;
 }
 
+.chevron {
+  color: lightskyblue;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.top-buffer {
+  margin-top: 18px;
+}
+
+/* Splash elements. */
+#splash-rule {
+  background-color: transparent;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.splash-highlight {
+  font-weight: bold;
+  color: gold;
+}
+
+.splash-description {
+  font-size: 110%;
+}
+
 /* Tutorial elements. */
 .tutorial-highlight {
   color: gold;
@@ -74,23 +101,27 @@ body {
   font-size: 150%;
 }
 
-#tutorial-confirm {
-  font-size: 125%;
-}
-
 .tutorial-form button {
   line-height: 75%;
 }
 
-/* Other one-off settings. */
-#menu {
-  color: black;
+#tutorial-confirm {
+  display: block;
+  font-size: 125%;
 }
 
-#title > a > .badge,
-#menu > a > .badge,
-#menu > a > .badge:hover {
-  color: white;
+/* Other one-off settings. */
+#about-root + #footer {
+  margin-top: 40px !important;
+}
+
+#about-body {
+  margin-top: 1rem;
+}
+
+#apply {
+  margin-top: 5px;
+  font-size: 125%;
 }
 
 #footer {
@@ -100,10 +131,12 @@ body {
   font-size: 80%;
 }
 
-#about-root + #footer {
-  margin-top: 40px !important;
+#menu {
+  color: black;
 }
 
-#about-body {
-  margin-top: 1rem;
+#title > a > .badge,
+#menu > a > .badge,
+#menu > a > .badge:hover {
+  color: white;
 }

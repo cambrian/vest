@@ -17,7 +17,9 @@ const Apply: React.FC = () => (
         moment to tell us about your staking needs:
       </Card.Text>
       <a target="_" href="https://forms.gle/viP5yF9Aux5YmmU27">
-        <Button variant="primary">Apply Now</Button>
+        <Button id="apply" variant="primary">
+          Apply Now
+        </Button>
       </a>
     </Card.Body>
   </Card>
