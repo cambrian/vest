@@ -257,7 +257,20 @@ const Tutorial: React.FC<{
               {purchasePriceBtc.toFixed(4)} BTC
             </span>{' '}
             to the following payment address within the next 24 hours:{' '}
-            <span className="tutorial-highlight">1SomeBTCAddress.</span>
+            <OverlayTrigger
+              placement="top"
+              overlay={
+                <Tooltip
+                  className="tooltip-code"
+                  id={`tooltip-example-address`}
+                >
+                  Example Address
+                </Tooltip>
+              }
+            >
+              <span className="tutorial-highlight">1A1zP1eP5QGefi2</span>
+            </OverlayTrigger>
+            .
             <br />
             <br />
             Once payment is confirmed, you should begin receiving the rewards
@@ -275,7 +288,17 @@ const Tutorial: React.FC<{
             <br />
             <br />
             Your order code is{' '}
-            <span className="tutorial-highlight">EXAMPLECODE</span>.
+            <OverlayTrigger
+              placement="top"
+              overlay={
+                <Tooltip className="tooltip-code" id={`tooltip-example-order`}>
+                  Example Order Code
+                </Tooltip>
+              }
+            >
+              <span className="tutorial-highlight">7GA3K9ME25B</span>
+            </OverlayTrigger>
+            .
           </code>
         )}
       </Col>
