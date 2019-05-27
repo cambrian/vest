@@ -21,10 +21,8 @@ const Splash: React.FC = () => {
               <span className="chevron">>></span> Earn dividends from the
               largest PoS miners.
             </h3>
+            <hr id="splash-rule" />
             <p className="splash-description">
-              <br />
-              <hr id="splash-rule" />
-              <br />
               Vest lets you purchase the rights to Proof-of-Stake (PoS) mining
               rewards, rather than having to stake yourself.
             </p>

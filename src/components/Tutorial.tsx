@@ -93,7 +93,7 @@ const Tutorial: React.FC<{
   useEffect(() => {
     if (props.tutorialRef.current !== null && stepChanged) {
       const tutorialTop = props.tutorialRef.current.getBoundingClientRect().top;
-      window.scroll({ top: tutorialTop + window.scrollY - 48 });
+      window.scroll({ top: tutorialTop + window.scrollY - 20 });
       setStepChanged(false);
     }
   }, [props.tutorialRef, stepChanged]);
