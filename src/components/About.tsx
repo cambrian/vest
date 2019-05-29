@@ -30,9 +30,9 @@ const About: React.FC = () => (
             (among others), and we're based out of downtown San Francisco.
           </p>
           <p>
-            Our team of developers graduated from Stanford in the past. Their
-            experience includes stints at companies like Google, Twitter, and
-            Jane Street.
+            Our team of developers graduated from Stanford at one point. Their
+            work experience includes companies like Google, Twitter, and Jane
+            Street.
           </p>
           <p>
             We'd love to chat!
