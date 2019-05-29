@@ -161,11 +161,13 @@ const Tutorial: React.FC<{
   return (
     <Row className="top-buffer">
       <Col className="order-md-12">
-        {step === 1 && (
-          <Form className="tutorial-form">
-            <code>
-              <span className="tutorial-highlight bold">Example:</span> You are
-              purchasing the rewards from staking{' '}
+        <code>
+          <div id="tutorial-header" className="tutorial-highlight bold">
+            Example:
+          </div>
+          {step === 1 && (
+            <Form className="tutorial-form">
+              You are purchasing the rewards from staking{' '}
               <AutosizeInput
                 className="autosize-input"
                 type="text"
@@ -199,12 +201,10 @@ const Tutorial: React.FC<{
               <Button variant="dark" onClick={() => setStepAndScroll(2)}>
                 Continue
               </Button>
-            </code>
-          </Form>
-        )}
-        {step === 2 && (
-          <Form className="tutorial-form">
-            <code>
+            </Form>
+          )}
+          {step === 2 && (
+            <Form className="tutorial-form">
               ...which will cost you{' '}
               <OverlayTrigger
                 placement="top"
@@ -244,65 +244,72 @@ const Tutorial: React.FC<{
               <Button variant="dark" onClick={() => setStepAndScroll(3)}>
                 Submit
               </Button>
-            </code>
-          </Form>
-        )}
-        {step === 3 && (
-          <code id="tutorial-confirm">
-            Your staking contract has been confirmed!
-            <br />
-            <br />
-            Please send{' '}
-            <span className="tutorial-highlight">
-              {purchasePriceBtc.toFixed(4)} BTC
-            </span>{' '}
-            to the following payment address within the next 24 hours:{' '}
-            <OverlayTrigger
-              placement="top"
-              overlay={
-                <Tooltip
-                  className="tooltip-code"
-                  id={`tooltip-example-address`}
-                >
-                  Example Address
-                </Tooltip>
-              }
-            >
-              <span className="tutorial-highlight">1A1zP1eP5QGefi2</span>
-            </OverlayTrigger>
-            .
-            <br />
-            <br />
-            Once payment is confirmed, you should begin receiving the rewards
-            from staking{' '}
-            <span className="tutorial-highlight">
-              {stakedAmount} {symbol}
-            </span>{' '}
-            for a{' '}
-            <span className="tutorial-highlight">{stakedDuration.label}</span>{' '}
-            duration, paid out to your address beginning in{' '}
-            <span className="tutorial-highlight">
-              {dummyAddresses[symbol].substr(0, 9)}
-            </span>
-            .
-            <br />
-            <br />
-            Your order code is{' '}
-            <OverlayTrigger
-              placement="top"
-              overlay={
-                <Tooltip className="tooltip-code" id={`tooltip-example-order`}>
-                  Example Order Code
-                </Tooltip>
-              }
-            >
-              <span className="tutorial-highlight">7GA3K9ME25B</span>
-            </OverlayTrigger>
-            .
-          </code>
-        )}
+            </Form>
+          )}
+          {step === 3 && (
+            <div id="tutorial-confirm">
+              Your staking contract has been confirmed!
+              <br />
+              <br />
+              Please send{' '}
+              <span className="tutorial-highlight">
+                {purchasePriceBtc.toFixed(4)} BTC
+              </span>{' '}
+              to the following payment address within the next 24 hours:{' '}
+              <OverlayTrigger
+                placement="top"
+                overlay={
+                  <Tooltip
+                    className="tooltip-code"
+                    id={`tooltip-example-address`}
+                  >
+                    Example Address
+                  </Tooltip>
+                }
+              >
+                <span className="tutorial-highlight">1A1zP1eP5QGefi2</span>
+              </OverlayTrigger>
+              .
+              <br />
+              <br />
+              Once payment is confirmed, you should begin receiving the rewards
+              from staking{' '}
+              <span className="tutorial-highlight">
+                {stakedAmount} {symbol}
+              </span>{' '}
+              for a{' '}
+              <span className="tutorial-highlight">{stakedDuration.label}</span>{' '}
+              duration, paid out to your address beginning in{' '}
+              <span className="tutorial-highlight">
+                {dummyAddresses[symbol].substr(0, 9)}
+              </span>
+              .
+              <br />
+              <br />
+              Your order code is{' '}
+              <OverlayTrigger
+                placement="top"
+                overlay={
+                  <Tooltip
+                    className="tooltip-code"
+                    id={`tooltip-example-order`}
+                  >
+                    Example Order Code
+                  </Tooltip>
+                }
+              >
+                <span className="tutorial-highlight">7GA3K9ME25B</span>
+              </OverlayTrigger>
+              .
+            </div>
+          )}
+        </code>
       </Col>
-      <Col md={{ span: 6 }} className="top-buffer-sm order-md-1">
+      <Col
+        id="tutorial-steps"
+        md={{ span: 6 }}
+        className="top-buffer-sm order-md-1"
+      >
         <Card
           className={'card-info ' + (step === 1 ? 'card-active' : '')}
           onClick={() => setStepAndScroll(1)}

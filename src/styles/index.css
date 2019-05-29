@@ -107,9 +107,13 @@ body {
   line-height: 75%;
 }
 
+#tutorial-header {
+  font-size: 150%;
+  margin-bottom: 15px;
+}
+
 #tutorial-confirm {
-  display: block;
-  font-size: 125%;
+  font-size: 140%;
 }
 
 /* Other one-off settings. */

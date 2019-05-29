@@ -25,6 +25,10 @@ $input-color: white;
   .top-buffer-sm {
     margin-top: 18px;
   }
+
+  #tutorial-steps {
+    margin-top: 24px;
+  }
 }
 
 @include media-breakpoint-up(md) {
