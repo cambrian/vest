@@ -161,10 +161,10 @@ const Tutorial: React.FC<{
   return (
     <Row className="top-buffer">
       <Col className="order-md-12">
+        <div id="tutorial-header" className="tutorial-highlight bold">
+          Example:
+        </div>
         <code>
-          <div id="tutorial-header" className="tutorial-highlight bold">
-            Example:
-          </div>
           {step === 1 && (
             <Form className="tutorial-form">
               You are purchasing the rewards from staking{' '}
