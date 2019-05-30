@@ -5,12 +5,12 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 
 const About: React.FC = () => (
-  <div id="about-root">
+  <div className="info-root">
     <Row className="top-buffer">
       <Col md={{ span: 8 }}>
         <Jumbotron>
           <h1>About</h1>
-          <p id="about-body">
+          <p className="info-body-first">
             <b>Vest</b> is brought to you by{' '}
             <a target="_" href="https://cambrian.dev">
               Cambrian Tech

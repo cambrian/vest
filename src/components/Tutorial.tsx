@@ -88,6 +88,10 @@ const Tutorial: React.FC<{
     value: 3,
     label: '3 month'
   });
+  const [paymentCurrency, setPaymentCurrency] = useState({
+    value: 'BTC',
+    label: 'BTC'
+  });
 
   // Scroll to top of tutorial.
   useEffect(() => {
@@ -132,17 +136,18 @@ const Tutorial: React.FC<{
     XTZ: 'KT1ExampleAddress',
     ATOM: 'cosmos1ExampleAddress'
   };
+  const dummyPaymentAddresses: { [index: string]: string } = {
+    BTC: '1A1zP1eP5QGefi2',
+    ETH: '0xC02aaA39b223F'
+  };
   const rates: { [index: string]: number } = {
     XTZ: 0.0059,
     ATOM: 0.0105
   };
   // As of 26 May 2019 on CoinMarketCap.
-  const btcPrices: { [index: string]: number } = {
-    XTZ: 0.0001908,
-    ATOM: 0.00052302
-  };
   const usdPrices: { [index: string]: number } = {
     BTC: 8730.59,
+    ETH: 267.92,
     XTZ: 1.67,
     ATOM: 4.56
   };
@@ -155,8 +160,9 @@ const Tutorial: React.FC<{
 
   // Calculate purchase price in BTC/USD.
   const contractDiscount = 0.6;
-  const purchasePriceBtc = contractDiscount * rewards * btcPrices[symbol];
-  const purchasePriceUsd = purchasePriceBtc * usdPrices['BTC'];
+  const paymentSymbol = paymentCurrency.value;
+  const purchasePriceUsd = contractDiscount * rewards * usdPrices[symbol];
+  const purchasePricePay = purchasePriceUsd / usdPrices[paymentSymbol];
 
   return (
     <Row className="top-buffer">
@@ -215,11 +221,20 @@ const Tutorial: React.FC<{
                 }
               >
                 <span className="tutorial-highlight">
-                  {purchasePriceBtc.toFixed(4)}
+                  {purchasePricePay.toPrecision(2)}
                 </span>
               </OverlayTrigger>{' '}
-              <span className="tutorial-highlight">BTC</span>. You are currently
-              estimated to earn{' '}
+              <TutorialSelect
+                options={[
+                  { value: 'BTC', label: 'BTC' },
+                  { value: 'ETH', label: 'ETH' }
+                ]}
+                value={paymentCurrency}
+                onChange={(value: { value: string; label: string }) =>
+                  setPaymentCurrency(value)
+                }
+              />{' '}
+              up front. You are currently estimated to earn{' '}
               <OverlayTrigger
                 placement="top"
                 overlay={
@@ -231,7 +246,7 @@ const Tutorial: React.FC<{
                 <span className="tutorial-highlight">{rewards.toFixed(2)}</span>
               </OverlayTrigger>{' '}
               <span className="tutorial-highlight">{symbol}</span> in rewards
-              (liable to vary).
+              (variable).
               <br />
               <br />
               Please enter your {symbol} payout address:{' '}
@@ -253,7 +268,7 @@ const Tutorial: React.FC<{
               <br />
               Please send{' '}
               <span className="tutorial-highlight">
-                {purchasePriceBtc.toFixed(4)} BTC
+                {purchasePricePay.toPrecision(2)} {paymentSymbol}
               </span>{' '}
               to the following payment address within the next 24 hours:{' '}
               <OverlayTrigger
@@ -267,7 +282,9 @@ const Tutorial: React.FC<{
                   </Tooltip>
                 }
               >
-                <span className="tutorial-highlight">1A1zP1eP5QGefi2</span>
+                <span className="tutorial-highlight">
+                  {dummyPaymentAddresses[paymentSymbol]}
+                </span>
               </OverlayTrigger>
               .
               <br />
@@ -335,9 +352,9 @@ const Tutorial: React.FC<{
               <b>Step 2: Checkout</b>
             </Card.Title>
             <Card.Text>
-              Review the quoted BTC price for your selected terms. If everything
-              looks correct, submit a <i>payout address</i> for receiving your
-              rewards.
+              Select a purchase currency and review the quoted price for your
+              contract. If everything looks correct, submit a{' '}
+              <i>payout address</i> for receiving your rewards.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -353,7 +370,7 @@ const Tutorial: React.FC<{
             </Card.Title>
             <Card.Text>
               After checkout, you'll see a <i>payment address</i> and an{' '}
-              <i>order code</i>. Send the indicated amount of BTC to this
+              <i>order code</i>. Send the indicated amount of currency to this
               address within 24 hours (or you'll have to checkout again).
               <br />
               <br />

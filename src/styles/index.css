@@ -86,7 +86,6 @@ body {
 }
 
 .splash-highlight {
-  font-weight: bold;
   color: gold;
 }
 
@@ -117,11 +116,11 @@ body {
 }
 
 /* Other one-off settings. */
-#about-root + #footer {
+.info-root + #footer {
   margin-top: 40px !important;
 }
 
-#about-body {
+.info-body-first {
   margin-top: 1rem;
 }
 
@@ -132,7 +131,7 @@ body {
 
 #footer {
   margin-top: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
   text-align: center;
   font-size: 80%;
 }
