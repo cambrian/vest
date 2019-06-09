@@ -2,9 +2,10 @@ import Apply from './Apply';
 import Col from 'react-bootstrap/Col';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 
-const About: React.FC = () => (
+const About: React.FC<RouteComponentProps> = () => (
   <div className="info-root">
     <Row className="top-buffer">
       <Col md={{ span: 8 }}>

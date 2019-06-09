@@ -2,11 +2,12 @@ import Apply from './Apply';
 import Col from 'react-bootstrap/Col';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Tutorial from './Tutorial';
 import { useRef } from 'react';
 
-const Splash: React.FC = () => {
+const Splash: React.FC<RouteComponentProps> = () => {
   const tutorialRef = useRef<any>(null);
 
   return (
