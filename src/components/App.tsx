@@ -11,7 +11,7 @@ import About from './About';
 import Badge from 'react-bootstrap/Badge';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-// import FAQ from './FAQ';
+import FAQ from './FAQ';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Splash from './Splash';
@@ -35,10 +35,10 @@ const App: React.FC = () => {
                 <Badge>Home</Badge>
               </NavLink>
               ·
-              {/* <NavLink to="/faq" exact activeClassName="menu-active">
+              <NavLink to="/faq" exact activeClassName="menu-active">
                 <Badge>FAQ</Badge>
               </NavLink>
-              · */}
+              ·
               <NavLink to="/about" exact activeClassName="menu-active">
                 <Badge>About</Badge>
               </NavLink>
@@ -48,7 +48,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" exact component={withTracker(Splash)} />
           <Route path="/about" component={withTracker(About)} />
-          {/* <Route path="/faq" component={withTracker(FAQ)} /> */}
+          <Route path="/faq" component={withTracker(FAQ)} />
           <Redirect to="/" />
         </Switch>
         <Row id="footer">

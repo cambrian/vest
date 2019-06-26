@@ -167,7 +167,7 @@ const Tutorial: React.FC<{
   return (
     <Row className="top-buffer">
       <Col className="order-md-12">
-        <div id="tutorial-header" className="tutorial-highlight bold">
+        <div id="tutorial-header" className="tutorial-highlight">
           Example:
         </div>
         <code>

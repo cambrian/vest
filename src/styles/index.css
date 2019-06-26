@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+ul {
+  list-style-type: square;
+}
+
 /* Same as code tags. */
 .tooltip-code {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
@@ -78,7 +82,8 @@ body {
 }
 
 /* Splash elements. */
-#splash-rule {
+#splash-rule,
+.faq-rule {
   margin-top: 36px;
   margin-bottom: 36px;
   background-color: transparent;
@@ -86,16 +91,34 @@ body {
 }
 
 .splash-highlight {
-  color: gold;
+  color: greenyellow;
 }
 
 .splash-description {
   font-size: 110%;
 }
 
+/* FAQ elements. */
+.faq-header {
+  color: greenyellow;
+  font-size: 125%;
+  line-height: 1.3em;
+}
+
+.faq-highlight {
+  color: gold;
+}
+
+.faq-math {
+  color: gold;
+  font-weight: bold;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace !important;
+}
+
 /* Tutorial elements. */
 .tutorial-highlight {
-  color: gold;
+  color: greenyellow;
 }
 
 .tutorial-form {
@@ -108,6 +131,7 @@ body {
 
 #tutorial-header {
   font-size: 140%;
+  font-weight: bold;
   margin-bottom: 3px;
 }
 
@@ -116,6 +140,14 @@ body {
 }
 
 /* Other one-off settings. */
+ul.ul-indent {
+  list-style-type: none;
+}
+
+ul.ul-indent > li {
+  margin-left: -10px;
+}
+
 .info-root + #footer {
   margin-top: 40px !important;
 }

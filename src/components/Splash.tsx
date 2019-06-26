@@ -1,8 +1,9 @@
+import { NavLink, RouteComponentProps } from 'react-router-dom';
+
 import Apply from './Apply';
 import Col from 'react-bootstrap/Col';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Tutorial from './Tutorial';
 import { useRef } from 'react';
@@ -19,13 +20,13 @@ const Splash: React.FC<RouteComponentProps> = () => {
               <b>Staking With Leverage</b>
             </h1>
             <h3>
-              <span className="chevron">>></span> Earn dividends from the
-              largest PoS miners.
+              <span className="chevron">>></span> Earn rewards from the largest
+              PoS miners.
             </h3>
             <hr id="splash-rule" />
             <p className="splash-description">
               Vest lets you purchase the rights to Proof-of-Stake (PoS) mining
-              rewards, rather than having to stake yourself.
+              rewards.
             </p>
             <p className="splash-description">
               Capture profits{' '}
@@ -38,7 +39,8 @@ const Splash: React.FC<RouteComponentProps> = () => {
             </p>
             <p className="splash-description">
               By partnering with only the most reputable stakers, we offer you
-              exceptional reliability and industry-leading profit margins.
+              exceptional reliability and industry-leading profit margins. View
+              our <NavLink to="/faq">FAQ</NavLink> for details!
             </p>
           </Jumbotron>
         </Col>
