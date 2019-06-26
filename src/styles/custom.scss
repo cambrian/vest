@@ -32,6 +32,11 @@ $input-color: white;
 }
 
 @include media-breakpoint-up(md) {
+  html {
+    /* Avoid a jumping scrollbar. */
+    padding-left: calc(100vw - 100%);
+  }
+
   .top-buffer-section {
     margin-top: 30px;
   }

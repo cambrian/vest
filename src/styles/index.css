@@ -1,8 +1,3 @@
-html {
-  /* Avoid a jumping scrollbar. */
-  padding-left: calc(100vw - 100%);
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -164,6 +159,13 @@ ul.ul-indent > li {
 #apply {
   margin-top: 5px;
   font-size: 125%;
+}
+
+/* Apply box is sticky on info pages with a flowing jumbotron. */
+.info-root #apply-box {
+  position: -webkit-sticky; /* Safari. */
+  position: sticky;
+  top: 30px;
 }
 
 #footer {

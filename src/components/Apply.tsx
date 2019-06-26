@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import React from 'react';
 
 const Apply: React.FC = () => (
-  <Card className="card-info card-active card-static">
+  <Card id="apply-box" className="card-info card-active card-static">
     <Card.Body>
       <Card.Title>
         <b>Join our alpha!</b>
