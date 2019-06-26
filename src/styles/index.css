@@ -1,3 +1,8 @@
+html {
+  /* Avoid a jumping scrollbar. */
+  padding-left: calc(100vw - 100%);
+}
+
 body {
   margin: 0;
   padding: 0;
