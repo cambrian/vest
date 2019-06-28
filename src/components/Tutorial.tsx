@@ -184,7 +184,7 @@ const Tutorial: React.FC<{
               <TutorialSelect
                 options={[
                   { value: 'XTZ', label: 'Tezzies' },
-                  { value: 'ATOM', label: 'Cosmos' }
+                  { value: 'ATOM', label: 'Atoms' }
                 ]}
                 value={stakedCurrency}
                 onChange={(value: { value: string; label: string }) =>

@@ -56,7 +56,7 @@ const FAQ: React.FC<RouteComponentProps> = () => (
             and staking them yourself?
           </p>
           <p>
-            Vanilla staking and staking contracts are different assets with
+            Vanilla staking and staking contracts are different investments with
             distinct risk-reward profiles.
           </p>
           <p>
@@ -214,8 +214,8 @@ const FAQ: React.FC<RouteComponentProps> = () => (
             <li>Avoid locking up funds as PoS collateral.</li>
             <li>Take leveraged bets on staking rewards.</li>
             <li>
-              Invest in a novel crypto asset, with a distinct risk-return
-              profile, in an industry dominated by highly positively correlated
+              Make a novel crypto investment—with a distinct risk-reward
+              profile—in an industry dominated by highly positively correlated
               assets.
             </li>
             <li>Profit from an appetite for risk and HODLing.</li>
